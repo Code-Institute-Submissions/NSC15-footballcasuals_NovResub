@@ -1,0 +1,14 @@
+.navbar-brand {
+    color: white;
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+.navbar {
+    background-color: rgba(0, 60, 255, 0.829);
+    height: 10vh;
+}
+
+.navbar-nav {
+    float: right !important;
+}
