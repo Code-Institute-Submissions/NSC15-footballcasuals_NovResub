@@ -5,7 +5,7 @@
 }
 
 .navbar {
-    background-color: rgba(252, 252, 253, 0.829);
+    background-color: rgba(216, 217, 219, 0.829);
     height: fit-content;
 }
 
@@ -13,20 +13,6 @@
     float: right !important;
 }
 
-.footer {
-    position: fixed;
-    height: 60px;
-    bottom: 0;
-    width: 100%;
-    line-height: 60px;
-    background-color: rgba(216, 217, 219, 0.829)
-}
-
-.footer-brand {
-    text-align: center;
-}
-
-.home-images {
-    height: 50vh;
-    object-fit: cover;
+.home-image {
+    min-width: 100%;
 }
