@@ -52,6 +52,8 @@ INSTALLED_APPS = [
     'home',
 ]
 
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 SITE_ID = 1
 
 MIDDLEWARE = [
