@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'home',
+    'store',
 ]
 
 LOGIN_REDIRECT_URL = '/'
