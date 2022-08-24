@@ -3,7 +3,17 @@
 {% load static %}
 
 {% block content %}
-<div>
-    <img src="{% static 'casuals-header.jpg' %}" class="img-fluid home-image" alt="Home image">
+<div class="container-fluid">
+    <div class="row-fluid row-shop-now">
+        <a class="btn btn-outline-light home-btn" href="{% url 'products' %}">Click here to shop our latest casuals
+            clothing!</a>
+    </div>
+    <div class="container-fluid">
+        <div class="col-fluid">
+            <div class="row-fluid justify-content-md-center">
+                <img src="{% static 'casuals-header.jpg' %}" class="home-image img-fluid" alt="Home image">
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
