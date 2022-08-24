@@ -25,3 +25,7 @@
 .container-fluid {
     padding: 0;
 }
+
+.admin-control-btn {
+    padding: 5px;
+}

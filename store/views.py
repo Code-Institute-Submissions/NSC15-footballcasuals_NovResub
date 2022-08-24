@@ -56,3 +56,12 @@ def all_products(request):
     }
     
     return render(request, 'products/products.html', context)
+
+def product_detail(request, slug):
+    """A view to show the product details"""
+
+    product = get_object_or_404(Product, slug=slug)
+    context = {
+        'product': product,
+    }
+    return render(request, 'products/product_detail.html', context)

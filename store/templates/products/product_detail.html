@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<main>
+    <section>
+        <div class="container px-4 mt-4 d-flex justify-content-end align-items-baseline">
+            {% if user.is_authenticated %}
+            <p>Hi <strong>{{user.username}}</strong>!</p>
+            {% endif %}
+        </div>
+        <div class="py-md-2">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="row gx-4 gx-lg-5 align-items-center">
+                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="{{ product.image.url }}"
+                            alt="{{product.name}} product image" /></div>
+                    <div class="col-md-6">
+                        {% if user.is_superuser%}
+                        <!--Edit and delete buttons for superuser-->
+                        <div class="d-flex justify-content-start align-items-baseline">
+                            <a class="admin-control-btn" href="#">Edit</a>
+                            <a href="#" class="text-danger admin-control-btn">Delete</a>
+                        </div>
+                        {% endif %}
+                        <h1>{{product.name}}</h1>
+                        {% if product.category %}
+                        <div>
+                            <p>Category: {{product.category.name}}</p>
+                        </div>
+                        {% endif %}
+                        <div>
+                            <p>Price: £{{product.price}}</p>
+                        </div>
+                        <p>Description: {{product.description}}</p>
+                    </div>
+                </div>
+            </div>
+    </section>
+</main>
+{% endblock %}
