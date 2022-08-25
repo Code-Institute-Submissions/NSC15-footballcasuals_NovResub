@@ -1,1 +1,1 @@
-web:gunicorn casualsshop.wsgi
+web: gunicorn casualsshop.wsgi
