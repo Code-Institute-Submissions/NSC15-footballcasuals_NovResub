@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'home',
     'store',
+    'bag',
 ]
 
 LOGIN_REDIRECT_URL = '/'
