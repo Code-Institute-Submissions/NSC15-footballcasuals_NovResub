@@ -28,19 +28,38 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                    <li class="nav-item text-center">
+                        <a class="text-info" href="{% url 'home' %}">
+                            <i class="fas fa-home fa-lg"></i>
+                            <p class="my-0 h6">Home</p>
+                        </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'products' %}">Products</a>
+                    <li class="nav-item text-center">
+                        <a class="text-info" href="{% url 'products' %}">
+                            <i class="fas fa-store-alt fa-lg"></i>
+                            <p class="my-0 h6">Products</p>
+                        </a>
                     </li>
 
                     {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'view_bag' %}">Basket</a>
+                    <li class="nav-item text-center">
+                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %}"
+                            href="{% url 'view_bag' %}">
+                            <i class="fas fa-shopping-bag fa-lg"></i>
+                            <p class="my-0 h6">
+                                {% if total %}
+                                ${{ total|floatformat:2 }}
+                                {% else %}
+                                £0.00
+                                {% endif %}
+                            </p>
+
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+                    <li class="nav-item text-center">
+                        <a class="text-info" href="{% url 'account_logout' %}">
+                            <i class="fas fa-sign-out-alt fa-lg"></i>
+                            <p class="my-0 h6">Logout</p>
+                        </a>
                     </li>
                     {% else %}
                     <li class="nav-item">

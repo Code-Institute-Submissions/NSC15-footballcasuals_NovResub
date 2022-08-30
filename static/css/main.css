@@ -13,6 +13,15 @@
     float: right !important;
 }
 
+ul.navbar-nav>li {
+    padding: 0.5em;
+
+}
+
+.text-info {
+    color: black !important;
+}
+
 .home-image {
     object-fit: contain;
 }
