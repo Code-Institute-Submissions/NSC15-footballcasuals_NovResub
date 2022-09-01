@@ -26,6 +26,7 @@ class Product(models.Model):
     brand = models.ForeignKey(Brand, null=True, blank=True, on_delete=models.SET_NULL)
     name = models.CharField(max_length=150, unique=True)
     slug = models.SlugField(max_length=150, unique=True, null=True)
+    has_sizes = models.BooleanField(default=False, null=True, blank=True)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
     image = CloudinaryField('image', default='placeholder')
