@@ -2,15 +2,38 @@
 
 {% block content %}
 <div class="container">
-    {% for item in bag_items %}
     <div class="row">
         <div class="col">
-            <p class="my-0">{{ item.product.name }}</p>
-            <img class="table-img" src="{{ item.product.image.url }}">
+            <table class="table align-middle table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Item</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Size</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in bag_items %}
+                    <tr>
+                        <th scope="row"><img class="table-img" src="{{ item.product.image.url }}"></th>
+                        <td>{{ item.product.name }}
+                            <br>
+                            <a href="{% url 'remove_from_bag' item.item_id %}"
+                                class="text-danger"><small>Remove</small></a></td>
+                        <td>{{ item.size.capitalize }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>£{{ item.product.price }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <th class="bag-total" colspan="3">Grand Total</th>
+                    <td>£{{ total }}</td>
+                </tfoot>
+            </table>
         </div>
-        <div class="col">{{ item.size }}</div>
-        <div class="col">{{ item.product.price }}</div>
-        {% endfor %}
     </div>
 </div>
 {% endblock %}

@@ -40,6 +40,10 @@ ul.navbar-nav>li {
 }
 
 .table-img {
-    height: 10rem;
-    width: 10rem;
+    height: 15rem;
+    width: 15rem;
+}
+
+.bag-total {
+    text-align: right;
 }
