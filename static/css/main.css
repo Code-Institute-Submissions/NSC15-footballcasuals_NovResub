@@ -1,7 +1,12 @@
+body {
+    min-height: 100%;
+}
+
 .navbar-brand {
     color: black;
     font-family: Cinzel, sans-serif;
     font-size: 2rem;
+    padding-left: 25px;
 }
 
 .navbar {
@@ -46,4 +51,9 @@ ul.navbar-nav>li {
 
 .bag-total {
     text-align: right;
+}
+
+.bag-empty {
+    text-align: center;
+    padding: 30px 0 0 0;
 }
