@@ -32,12 +32,17 @@
                 </tbody>
                 <tfoot>
                     <th class="bag-total" colspan="3">Grand Total</th>
-                    <td>£{{ total }}</td>
+                    <td colspan="2">£{{ total }}</td>
+                    <tr>
+                        <td class="bag-total" colspan="5"><a class="btn btn-success btn-lg" href="#">Checkout
+                                <strong>£{{ total }}</strong></a></td>
+                    </tr>
                 </tfoot>
             </table>
         </div>
     </div>
 </div>
+
 {% else %}
 <div class="container bag-empty">
     <h2>Your shopping bag is empty</h2>
