@@ -6,16 +6,12 @@ body {
     color: black;
     font-family: Cinzel, sans-serif;
     font-size: 2rem;
-    padding-left: 25px;
+    padding: 0.2em;
 }
 
 .navbar {
     background-color: rgba(216, 217, 219, 0.829);
     height: fit-content;
-}
-
-.navbar-nav {
-    float: right !important;
 }
 
 ul.navbar-nav>li {
@@ -56,4 +52,24 @@ ul.navbar-nav>li {
 .bag-empty {
     text-align: center;
     padding: 30px 0 0 0;
+}
+
+.form-control {
+    border: 1px solid #000;
+    margin: 8px 0 8px 0;
+    border-radius: 0px;
+}
+
+.order-summary {
+    margin-bottom: 6px;
+}
+
+.table-bordered {
+    border: 1px solid #000;
+}
+
+#payment-form .form-control,
+#card-element {
+    color: #000;
+    border: 1px solid #000;
 }
