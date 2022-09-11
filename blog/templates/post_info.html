@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<section>
+    <div class="container chat-container">
+        <div class="row">
+            <div class="col text-center">
+                <h1>Join the discussion</h1>
+                <p>{{ post.title }}</p>
+                <p>{{ post.text }}</p>
+                <form class="comment-form" method="POST">
+                    {% csrf_token %}
+                    {{ comment_box | crispy }}
+
+                    <button type="submit" class="btn btn-primary btn-lg">Post</button>
+                </form>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <h5>Comments: </h5>
+            <div class="col-12">
+                {% for comment in comments %}
+                <div class="thread-comments">
+                    <p>{{ comment.created_on }} - {{ comment.name.capitalize}} wrote:
+                        {{ comment.body.capitalize }}
+                        <br>
+                        <small><a href="#">Edit</a></small></p>
+                </div>
+                {% endfor %}
+            </div>
+</section>
+
+{% endblock %}

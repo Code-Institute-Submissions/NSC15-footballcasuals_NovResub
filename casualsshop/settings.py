@@ -49,12 +49,13 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
+    'crispy_forms',
     'home',
     'store',
     'bag',
     'checkout',
     'blog',
-    'crispy_forms',
+    
 ]
 
 SITE_ID = 1
