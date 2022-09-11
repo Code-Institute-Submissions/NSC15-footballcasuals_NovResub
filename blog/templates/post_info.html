@@ -8,8 +8,8 @@
         <div class="row">
             <div class="col text-center">
                 <h1>Join the discussion</h1>
-                <p>{{ post.title }}</p>
-                <p>{{ post.text }}</p>
+                <h4>Blog Topic: {{ post.title }}</h4>
+                <h5>Blog Post: {{ post.text }}</h5>
                 <form class="comment-form" method="POST">
                     {% csrf_token %}
                     {{ comment_box | crispy }}
@@ -25,8 +25,7 @@
                 <div class="thread-comments">
                     <p>{{ comment.created_on }} - {{ comment.name.capitalize}} wrote:
                         {{ comment.body.capitalize }}
-                        <br>
-                        <small><a href="#">Edit</a></small></p>
+                    </p>
                 </div>
                 {% endfor %}
             </div>

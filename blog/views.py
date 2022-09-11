@@ -1,8 +1,8 @@
+from django.views.generic import View
 from django.shortcuts import render, reverse, redirect, get_object_or_404
 from django.contrib import messages
 from .models import Post, Comment
 from .forms import CommentBox
-
 
 def view_posts(request):
     posts = Post.objects.all()
@@ -34,10 +34,3 @@ def view_post_info(request, slug):
         'post': post
     }
     return render(request, 'post_info.html', context)
-
-# class UpdateComment(UpdateView):
-#     model = Comment
-#     template_name = 'edit_comment.html'
-#     form_class = CommentBox
-
-# Create your views here.

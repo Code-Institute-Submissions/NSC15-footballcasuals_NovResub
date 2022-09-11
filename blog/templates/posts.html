@@ -16,12 +16,6 @@
                                 href="{% url 'view_post_info' post.slug %}">Comment</a></div>
                     </div>
                     <div class="card-footer">Posted by {{ post.author }} on {{ post.created_on }}
-                        {% if request.user == post.author or request.user.is_superuser %}
-                        <small class="ml-3">
-                            <a href="#">Edit</a> |
-                            <a class="text-danger" href="#">Delete</a>
-                        </small>
-                        {% endif %}
                     </div>
                 </div>
                 {% endfor %}
