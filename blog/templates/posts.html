@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-4 text-center">
+                {% for post in post_list %}
+                <div class="card my-1 text-center">
+                    <div class="card-body">
+                        <h1 class="card-title">{{ post.title }}</h1>
+                        <div class="card-text">{{ post.text }}</div>
+                    </div>
+                    <div class="card-footer">Posted by {{ post.author }} on {{ post.created_on }}
+                        {% if request.user == post.author or request.user.is_superuser %}
+                        <small class="ml-3">
+                            <a href="#">Edit</a> |
+                            <a class="text-danger" href="#">Delete</a>
+                        </small>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}

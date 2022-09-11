@@ -3,18 +3,62 @@
 
 {% load static %}
 
+
 {% block content %}
 <div class="container-fluid">
-    <div class="row-fluid row-shop-now">
-        <a class="btn btn-outline-light home-btn" href="{% url 'products' %}">Click here to shop our latest casuals
-            clothing!</a>
-    </div>
-    <div class="container-fluid">
-        <div class="col-fluid">
-            <div class="row-fluid justify-content-md-center">
-                <img src="{% static 'casuals-header.jpg' %}" class="home-image img-fluid" alt="Home image">
+    <img src="static/casuals.png" class="img-responsive index-img">
+</div>
+<section>
+    <div class="container">
+        <div class="row text-center justify-content-center">
+            <div class="col-sm-12 col-md-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h1 class="card-title">About</h1>
+                        <p class="card-text">We are a small business located in Nottinghamshire, UK. Our love for
+                            this fashion started at
+                            the
+                            football, on the terraces.
+                            We offer a host of products for you too choose from. We are an online-only business but
+                            do
+                            not
+                            hesitate in contacting if you wish to request
+                            an item that isnt currently on the site and we will do our best to help!</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h1 class="card-title">Products</h1>
+                        <p class="card-text">
+                            <h4>Casual Brands -</h4>
+                            <ul>
+                                <li>Fila</li>
+                                <li>Ellesse</li>
+                                <li>Stone Island</li>
+                                <li>Sergio Tachini</li>
+                            </ul>
+                        </p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h1 class="card-title">Blog</h1>
+                        <p class="card-text">Share your stories from the old school football days, favourite fashion
+                            brands
+                            and some light-hearted football banter.<br>
+                            <strong>Please note, any abusive language or comments
+                                will be removed and users will be reported.
+                            </strong></p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
+</section>
 {% endblock %}

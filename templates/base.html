@@ -13,7 +13,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Kanit:wght@500&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <title>Football Casuals</title>
 
@@ -34,7 +37,7 @@
     {% endblock %}
 </head>
 
-<body>
+<body class="d-flex flex-column h-100">
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'home' %}">Football Casuals</a>
@@ -54,6 +57,12 @@
                         <a class="text-info" href="{% url 'products' %}">
                             <i class="fas fa-store-alt fa-lg"></i>
                             <p class="my-0 h6">Products</p>
+                        </a>
+                    </li>
+                    <li class="nav-item text-center">
+                        <a class="text-info" href="{% url 'blog' %}">
+                            <i class="fas fa-comments fa-lg"></i>
+                            <p class="my-0 h6">Blog</p>
                         </a>
                     </li>
 
@@ -97,7 +106,6 @@
     </nav>
     {% block content %}
     {% endblock %}
-
     {% block postloadjs %}
     <script type="text/javascript">
         $('.toast').toast('show');

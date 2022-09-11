@@ -3,44 +3,42 @@
 {% block content %}
 {% if bag_items %}
 <div class="container">
-    <div class="row">
-        <div class="col">
-
-            <table class="table align-middle table-bordered table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Item</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Size</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Price</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for item in bag_items %}
-                    <tr>
-                        <th scope="row"><img class="table-img" src="{{ item.product.image.url }}"></th>
-                        <td>{{ item.product.name }}
-                            <br>
-                            <a href="{% url 'remove_from_bag' item.item_id %}"
-                                class="text-danger"><small>Remove</small></a></td>
-                        <td>{{ item.size.capitalize }}</td>
-                        <td>{{ item.quantity }}</td>
-                        <td>£{{ item.product.price }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-                <tfoot>
-                    <th class="bag-total" colspan="3">Grand Total</th>
-                    <td colspan="2">£{{ total }}</td>
-                    <tr>
-                        <td class="bag-total" colspan="5"><a class="btn btn-success btn-lg"
-                                href="{% url 'checkout' %}">Checkout
-                                <strong>£{{ total }}</strong></a></td>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
+    <h1 class="text-center">Your basket:</h1>
+    <div class="row justify-content-center">
+        <table class="table-responsive text-center w-auto table-bordered table-striped bag-table">
+            <thead>
+                <tr>
+                    <th scope="col">Item</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Size</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in bag_items %}
+                <tr>
+                    <th scope="row"><img class="table-img" src="{{ item.product.image.url }}"></th>
+                    <td>{{ item.product.name }}
+                        <br>
+                        <a href="{% url 'remove_from_bag' item.item_id %}" class="text-danger"><small>Remove</small></a>
+                    </td>
+                    <td>{{ item.size.capitalize }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>£{{ item.product.price }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <th class="bag-total" colspan="3">Grand Total</th>
+                <td colspan="2">£{{ total }}</td>
+                <tr>
+                    <td class="bag-total" colspan="5"><a class="btn btn-success btn-lg"
+                            href="{% url 'checkout' %}">Checkout
+                            <strong>£{{ total }}</strong></a></td>
+                </tr>
+            </tfoot>
+        </table>
     </div>
 </div>
 
