@@ -19,7 +19,6 @@
                         {% if request.user.is_superuser %}
                         <!--Edit and delete buttons for superuser-->
                         <div class="d-flex justify-content-start align-items-baseline">
-                            <a class="admin-control-btn" href="#">Edit</a>
                             <a href="{% url 'delete_product' product.slug %}"
                                 class="text-danger admin-control-btn">Delete</a>
                         </div>
