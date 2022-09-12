@@ -1,11 +1,15 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from store.models import Product
 
+
+@login_required
 def view_bag(request):
     return render(request, 'bag/bag.html')
 
 
+@login_required
 def add_to_bag(request, item_id):
 
     product = get_object_or_404(Product, pk=item_id)
@@ -48,6 +52,7 @@ def add_to_bag(request, item_id):
     return redirect(redirect_url)
 
 
+@login_required
 def remove_from_bag(request, item_id):
 
     try:
@@ -57,6 +62,5 @@ def remove_from_bag(request, item_id):
         messages.success(request, f'Removed {product.name} from your bag')
         request.session['bag'] = bag
         return redirect(reverse('view_bag'))
-
     except Exception as e:
         messages.error(request, f'Error removing item: {e}')

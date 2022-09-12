@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
+from django.contrib.auth.decorators import login_required
 from .forms import ProductForm
 
 from .models import Product, Category
@@ -41,7 +42,7 @@ def all_products(request):
             query = request.GET['q']
             if not query:
                 messages.error(request,
-                                ("You didn't enter any search criteria!"))
+                               ("You didn't enter any search criteria!"))
                 return redirect(reverse('products'))
 
             queries = Q(name__icontains=query) | Q(description__icontains=query)
@@ -58,6 +59,8 @@ def all_products(request):
     
     return render(request, 'products/products.html', context)
 
+
+@login_required()
 def product_detail(request, slug):
     """A view to show the product details"""
 
@@ -68,6 +71,7 @@ def product_detail(request, slug):
     return render(request, 'products/product_detail.html', context)
 
 
+@login_required
 def add_product(request):
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
@@ -89,6 +93,8 @@ def add_product(request):
 
     return render(request, 'products/add_product.html', context)
 
+
+@login_required
 def delete_product(request, slug):
 
     product = get_object_or_404(Product, slug=slug)
@@ -102,6 +108,7 @@ def delete_product(request, slug):
     }
 
     return render(request, 'products/delete_product.html', context)
+
 
 def handler404(request, exception):
     return render(request, "404.html", status=404)

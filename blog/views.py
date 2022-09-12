@@ -1,9 +1,11 @@
-from django.views.generic import View
-from django.shortcuts import render, reverse, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from .models import Post, Comment
 from .forms import CommentBox
 
+
+@login_required
 def view_posts(request):
     posts = Post.objects.all()
     context = {
@@ -11,6 +13,8 @@ def view_posts(request):
     }
     return render(request, 'posts.html', context)
 
+
+@login_required
 def view_post_info(request, slug):
     
     post = get_object_or_404(Post, slug=slug)

@@ -9,10 +9,9 @@ from bag.contexts import bag_contents
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 
-
-
 import stripe
 import json
+
 
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
@@ -95,6 +94,7 @@ def checkout(request):
             'client_secret': intent.client_secret,
         }
         return render(request, template, context)
+
 
 def checkout_success(request, order_number):
     """
