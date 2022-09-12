@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h1 class="text-center">Thank you for your purchase</h1>
+    <div class="row justify-content-center">
+        <div class="col-12 text-center">
+            <p class="fs-6 px-2 fw-bold order-summary">
+                Please see order summary below. A confirmation email has been sent to {{ order.email }}
+            </p>
+        </div>
+    </div>
+    <div class="row my-5 justify-content-center">
+        <div class="col-sm-8 my-2 text-center">
+            <p class="fs-4 px-2 fw-bold text-decoration-underline order-summary">Order Summary:</p>
+            <table class="table text-center table-bordered table-striped">
+                <thead>
+                    <tr class="align-middle">
+                        <th scope="col">Product</th>
+                        <th scope="col">Product Info</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in order.lineitems.all %}
+                    <tr class="align-middle">
+                        <td>{{ item.product.name }}</td>
+                        <td>
+                            Size = {{ item.product_size|upper }}
+                            <br>
+                            Quantity = {{ item.quantity }}
+                            <br>
+                            Price = £{{ item.product.price }}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    {% endblock %}

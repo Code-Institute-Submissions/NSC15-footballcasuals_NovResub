@@ -84,10 +84,12 @@
 
                     <!-- Used to display form errors -->
                     <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                    <!-- Pass the client secret to the view so we can get the payment intent id -->
+                    <input type="hidden" value="{{ client_secret }}" name="client_secret">
                 </fieldset>
                 <fieldset class="px-3">
-                    <button id="submit-button" class="btn btn-success text-center>
-                        <span class=" font-weight-bold">Complete Order</span>
+                    <button id="submit-button" class="btn btn-success text-center">
+                        <span class="font-weight-bold">Complete Order</span>
                         <span class="icon">
                             <i class="fas fa-lock"></i>
                         </span>
