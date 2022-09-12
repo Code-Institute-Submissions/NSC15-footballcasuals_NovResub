@@ -5,5 +5,8 @@ class Contact(models.Model):
     email = models.EmailField()
     request = models.TextField()
 
+    class Meta:
+        ordering = ['name']
+    
     def __str__(self):
         return self.name

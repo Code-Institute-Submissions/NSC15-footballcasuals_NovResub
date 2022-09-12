@@ -5,10 +5,9 @@
         <h1 class="text-center">Contact Us</h1>
     </div>
     <div class="row">
-        <form method="POST">
+        <form method="POST" action="{% url 'contact' %}">
             {% csrf_token %}
-
-            <div class="form-group">
+            <div class=" form-group">
                 <label for="exampleFormControlInput1">Your Name:</label>
                 <input name="name" type="text" class="form-control" id="exampleFormControlInput1"
                     placeholder="Enter your name">

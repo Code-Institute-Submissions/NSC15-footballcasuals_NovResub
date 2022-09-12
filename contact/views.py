@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
 from .models import Contact
+
 
 def contact_us(request):
     if request.method == "POST":
@@ -12,4 +13,6 @@ def contact_us(request):
         contact.email = email
         contact.request = request
         contact.save()
-    return render(request, 'contact_us.html')
+        return(redirect(reverse('contact')))
+    else:
+        return render(request, 'contact.html')
