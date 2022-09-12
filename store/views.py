@@ -74,7 +74,7 @@ def add_product(request):
         if form.is_valid():
             product = form.save()
             messages.success(request, 'Product added!')
-            return redirect(reverse('products', args=[product.slug]))
+            return redirect(reverse('products'))
         else:
             messages.error(request,
                            ('Sorry, your product coult not be added. '

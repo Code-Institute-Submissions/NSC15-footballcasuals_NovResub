@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, HttpResponseRedirect
+from django.contrib import messages
 from .models import Contact
 
 
@@ -8,7 +9,6 @@ def contact_us(request):
         name = request.POST.get('name')
         email = request.POST.get('email')
         request = request.POST.get('request')
-
         contact.name = name
         contact.email = email
         contact.request = request

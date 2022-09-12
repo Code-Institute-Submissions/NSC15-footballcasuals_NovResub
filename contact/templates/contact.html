@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="container chat-container">
+<div class="container my-3 chat-container">
     <div class="row">
         <h1 class="text-center">Contact Us</h1>
     </div>
@@ -8,24 +8,24 @@
         <form method="POST" action="{% url 'contact' %}">
             {% csrf_token %}
             <div class=" form-group">
-                <label for="exampleFormControlInput1">Your Name:</label>
+                <label for="exampleFormControlInput1"><strong>Your Name:</strong></label>
                 <input name="name" type="text" class="form-control" id="exampleFormControlInput1"
                     placeholder="Enter your name">
             </div>
 
             <div class="form-group">
-                <label for="exampleFormControlInput1">Your E-mail Address:</label>
+                <label for="exampleFormControlInput1"><strong>Your E-mail Address:</strong></label>
                 <input name="email" type="email" class="form-control" id="exampleFormControlInput1"
                     placeholder="Enter your email address">
             </div>
 
             <div class="form-group">
-                <label for="exampleFormControlTextarea1">Your query / request:</label>
+                <label for="exampleFormControlTextarea1"><strong>Your query / request:</strong></label>
                 <textarea name="request" class="form-control" id="exampleFormControlTextarea1" rows="3"
                     placeholder="Please enter your request"></textarea>
             </div>
 
-            <button type="submit" class="btn btn-secondary">Submit</button>
+            <button type="submit" class="btn btn-success mb-2">Submit</button>
         </form>
     </div>
 </div>
