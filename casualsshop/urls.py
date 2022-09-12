@@ -10,5 +10,6 @@ urlpatterns = [
     path('bag/', include('bag.urls')),
     path('checkout/', include('checkout.urls')),
     path('blog/', include('blog.urls')),
+    path('contact/', include('contact.urls')),
 
 ]

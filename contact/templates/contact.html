@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container chat-container">
+    <div class="row">
+        <h1 class="text-center">Contact Us</h1>
+    </div>
+    <div class="row">
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Your Name:</label>
+                <input name="name" type="text" class="form-control" id="exampleFormControlInput1"
+                    placeholder="Enter your name">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Your E-mail Address:</label>
+                <input name="email" type="email" class="form-control" id="exampleFormControlInput1"
+                    placeholder="Enter your email address">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Your query / request:</label>
+                <textarea name="request" class="form-control" id="exampleFormControlTextarea1" rows="3"
+                    placeholder="Please enter your request"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-secondary">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
