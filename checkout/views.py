@@ -1,10 +1,9 @@
 from django.shortcuts import (
-    render, redirect, reverse, get_object_or_404, HttpResponse
+    render, redirect, reverse, get_object_or_404
 )
-from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
-from django.contrib.auth.models import User
+from django.core.mail import send_mail
 from store.models import Product
 from bag.contexts import bag_contents
 from .forms import OrderForm
@@ -105,6 +104,13 @@ def checkout_success(request, order_number):
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
+    send_mail(
+        'Order Confirmation',
+        'Thank you for your order, delivery should be 3 working days',
+        'nathancave123@gmail.com',
+        {order.email},
+        fail_silently=False,
+    )
 
     if 'bag' in request.session:
         del request.session['bag']
