@@ -2,8 +2,9 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
+from .forms import ProductForm
 
-from .models import Product, Category, Brand
+from .models import Product, Category
 # Create your views here.
 
 
@@ -39,9 +40,9 @@ def all_products(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                 messages.error(request,
+                messages.error(request,
                                 ("You didn't enter any search criteria!"))
-                 return redirect(reverse('products'))
+                return redirect(reverse('products'))
 
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
@@ -65,6 +66,29 @@ def product_detail(request, slug):
         'product': product,
     }
     return render(request, 'products/product_detail.html', context)
+
+
+def add_product(request):
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            product = form.save()
+            messages.success(request, 'Product added!')
+            return redirect(reverse('product_detail', args=[product.slug]))
+        else:
+            messages.error(request,
+                           ('Sorry, your product coult not be added. '
+                            'Make sure the entered information is '
+                            'valid.'))
+    else:
+        form = ProductForm()
+
+    context = {
+        'form': form,
+    }
+
+    return render(request, 'products/add_product.html', context)
+
 
 def handler404(request, exception):
     return render(request, "404.html", status=404)

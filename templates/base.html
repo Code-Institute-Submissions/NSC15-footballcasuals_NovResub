@@ -66,7 +66,14 @@
                             <p class="my-0 h6">Blog</p>
                         </a>
                     </li>
-
+                    {% if request.user.is_superuser %}
+                    <li class="nav-item text-center">
+                        <a class="text-info" href="{% url 'add_product' %}">
+                            <i class="fas fa-plus fa-lg"></i>
+                            <p class="my-0 h6">Manage</p>
+                        </a>
+                    </li>
+                    {% endif %}
                     {% if user.is_authenticated %}
                     <li class="nav-item text-center">
                         <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %}"
@@ -106,7 +113,7 @@
         </div>
     </nav>
     {% if messages %}
-    <div class="container messages-div">
+    <div class="container">
         {% for message in messages %}
         <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
             {{ message |safe }}
