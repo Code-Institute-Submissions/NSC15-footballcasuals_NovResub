@@ -74,7 +74,7 @@ def add_product(request):
         if form.is_valid():
             product = form.save()
             messages.success(request, 'Product added!')
-            return redirect(reverse('product_detail', args=[product.slug]))
+            return redirect(reverse('products', args=[product.slug]))
         else:
             messages.error(request,
                            ('Sorry, your product coult not be added. '
@@ -89,6 +89,19 @@ def add_product(request):
 
     return render(request, 'products/add_product.html', context)
 
+def delete_product(request, slug):
+
+    product = get_object_or_404(Product, slug=slug)
+    if request.method == 'POST':
+        product.delete()
+        messages.success(request, 'Product deleted!')
+        return redirect(reverse('products'))
+
+    context = {
+        'product': product,
+    }
+
+    return render(request, 'products/delete_product.html', context)
 
 def handler404(request, exception):
     return render(request, "404.html", status=404)
