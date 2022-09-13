@@ -13,9 +13,13 @@ The site is laid out with clear information, minimalistic design so that the use
 
 - [View website planning Q's](https://docs.google.com/document/d/1C3_8yjV5OL-vI_vUVK-uQ40GAQa17Ybtdwm-NSfwbU4/edit?usp=sharing)
 - [View homepage design](static/home_page.png)
+- [View product page design](static/products.png)
+- [View product details design](static/product-detail.png)
 
-- The main theme of the website was constructed through the original mockup which then allowed me to create the base.html. From here i used the user stories and feature planning to really design
-the page and this allowed me freedom with the project creation scope to get creative and take time to see what worked best and where.
+- The main theme of the website was constructed through the original mockup which then allowed me to create the base.html. I created mockup designs for the product page and product detail page
+but then also made slight adjustments along the way as the project was developing. I feel i had a solid start into the planning and for the majority implemented these but with this project
+having no strict scope i enjoyed being able to adjust designs along the way. This doesnt have any impact into the fact that in real world projects, the UX designs have alot stricter scope to
+conform with.
 
 ## User Stories
 
