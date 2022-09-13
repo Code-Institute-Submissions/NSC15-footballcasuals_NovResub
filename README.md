@@ -21,7 +21,7 @@ the page and this allowed me freedom with the project creation scope to get crea
 
 1. As an admin user I want to be able to add new products onto the site
 2. As an admin user I want to be able to delete products once they are no longer available
-3. As an admin user I want to be able to delete blog posts
+3. As an admin user I want to be able to delete blog post comments
 4. As a site user I want to be able to see what the site is going to offer me
 5. As a site user I want to be able to browse the products that are on sale
 6. As a site user I want to be able to choose with size I want for a particular product
@@ -31,7 +31,21 @@ the page and this allowed me freedom with the project creation scope to get crea
 10. As a site user I want to be able to get my own account
 11. As a site user I want to be able to pay via the website online
 
+## Design
+
+- I have maintained a similar layout throughout the website, with good contrast levels
+using a light grey for the main body and white for the nav bar, i like to ensure that the design is minimalistic to really ensure focus is set onto the sites content. Each main part of the site is housed within a container, and different functions / tools within the site for the majority have their own card to keep a structured layout. I feel that the design of the site allows for any user to easily navigate around and all headings are clear enough for any user to go exactly where they desire, working to a RFT mindset (Right First Time).
+
 ## Features
+
+- Information content page
+- Store product page
+- Bag functionality (CRUD implemented)
+- Blog page with posts and comments
+- Store owners store stock control (CRUD implemented)
+- Contact page with relevant form
+- User login pages
+- Checkout system that accepts online payments
 
 ### Base Template
 
@@ -151,6 +165,43 @@ Football Casuals is B2C(Business to customer) application due to the fact that i
 
 ## Testing
 
+### Admin user story testing
+
+- 'Add new products' - navigate onto the manage page from the nav bar(testing successful for tab only being accessibile by a logged in admin)
+form loads okay, complete form and click submit. Product added into the database
+as it was accessibile from the admin panel. Bug found that the site then tries to redirect back to the view that handles the POST method of adding the product
+this was due to the redirect going into the wrong view function, altered this to redirect to the general products page which then loaded fine.
+
+- 'Delete products' - this function is within the product detail page for the particular product, click on a certain product which performs the get request
+the delete button should then be visible (only if an admin), upon clicking delete the site then redirects back to the general products page but without
+the product that was just deleted, visible success message shown on screen, and process confirmation then passed within admin panel as product now
+doesnt exist in the back end either.
+
+- 'Create blog posts' - this function is unfortunately only available via the back end for the purpose of project submission, although testing was still completed within the
+development stage to create the layout of the web page templates, due to it being with the admin back end panel, all functionality is working correctly, i can enter all information
+within the form and then save and/or delete a post
+
+- 'Delete blog comments' - this function sits within the admin backend due to time constraints for project submission, although all functionality is working correctly
+as expected.
+
+### User story testing
+
+4.This user story is fulfilled by being able to access the home page. webpage loads fine, links to the home page are done via the base.html so link is accessible from wherever within the website the user is. This also doesnt require any login.
+
+5.Products page is accessible through the home page shop link and also through the navigation bar, both buttons tested are function correctly. User is also able to get more details about the product by clicking the product which takes them to a product detail page with the products slug as an argument, this works with any product that i have created.
+
+6.User is able to choose a size from the dropdown box in the product detail page, the sizing options are the same for all products. This information is then set once the user clicks on add to bag which then updates(CRUD) the users bag in readiness for checkout. If the admin state that the product doesnt have any sizes then the size option isnt available for the customer to choose, which is correct in a sense as some items of clothing may not require sizing, however also means that the admin creating the product needs to ensure that they input the correct information into the new product form.
+
+7.User is able to adjust the product quantity within the product detail page. Tested that whichever number is put into the quantity box then transfers into the bag display, this also then contributes towards the total price for the order. There is correct validation onto the quantity box for example tested to ensure that the user cannot enter 0 or a letter.
+
+8.Test through different user accounts and non logged in account that the user can access the contact form, which they can. Contact form then requires a name, email and message as set out in the back end model. Contact form testing successful that the form is then sent into the back end (future improvement for these forms to be sent into a personal email address), upon completion of the form the site then successful redirects back to the form page for if the users wishes to complete the form again. the website visually reloads so the user knows that the form has been sent.
+
+9.Test that the blog posts pages load correctly is ok. The comment button to enter in the particular blog post button works correctly. Form to add a comment displays correctly, tested that the input into the comment body field is then passed back to the users in the comments boxes underneath with the correct date/time and the user account, all of which passed okay.
+
+10.User is able to access the login or register links from the main navigation bar, links tested and work correctly. Form works correctly. Message displayed once user is logged in to show login state, this is also backed up with the change in nav bar headers. Users can be made admin users from within the back end, testing passed and complete.
+
+11.Payment system provided through stripe, formatting onto the card box functions correctly, tested through using dummy card numbers, successful transaction is displayed within a webpage outlying the order confirmation details, a success message is also displayed on the webpage. Incorrect card numbers do not allow for the user to submit the checkout form therefore doesnt process the order and create the order number. Delivery form has sufficient validation to ensure that the fields are completed.
+
 ### Automatic Testing
 
 - W3C HTML Testing Service - Ok
@@ -162,6 +213,11 @@ Football Casuals is B2C(Business to customer) application due to the fact that i
 
 - DevTools - Dev tools was used through the project to test responsiveness, and design layouts
 - Stripe false bank cards - To put purchases into practise to carry out testing and handle checkout correctly.
+- Extensive time spent in the development server testing functionality as functions were created
+- Debug False testing completed at intervals within development to confirm functions are correct in production
+environment instead of encountering errors within a final code push up to project submission
+- Bag functionality testing - items added into the bag multiple times, which updates the navbar bag price display, and product information is viewable in the bag page. Test delete product from bag works, which then also switches the bag display page to say there are no products in the bag and a handy button to return to the products page.
+- Newsletter accepts an email and shows a feedback message.
 
 ## Deployment
 
@@ -222,3 +278,4 @@ To deploy to Heroku follow these steps:
 - Google images - I do not own copyright to any images used within the site
 - Slack - Student Chat Platform
 - Stack Overflow - Coding Aid
+- Stripe / CI - Payment system and related code

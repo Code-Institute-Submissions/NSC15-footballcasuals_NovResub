@@ -16,7 +16,7 @@ def view_posts(request):
 
 @login_required
 def view_post_info(request, slug):
-    
+
     post = get_object_or_404(Post, slug=slug)
     comments = Comment.objects.order_by('-created_on')
     comment = None
@@ -31,7 +31,7 @@ def view_post_info(request, slug):
             return redirect('view_post_info', slug=slug)
     else:
         comment_box = CommentBox()
-    
+
     context = {
         'comments': comments,
         'comment_box': comment_box,

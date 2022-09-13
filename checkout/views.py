@@ -1,3 +1,5 @@
+import json
+import stripe
 from django.shortcuts import (
     render, redirect, reverse, get_object_or_404
 )
@@ -8,9 +10,6 @@ from store.models import Product
 from bag.contexts import bag_contents
 from .forms import OrderForm
 from .models import Order, OrderLineItem
-
-import stripe
-import json
 
 
 def checkout(request):
@@ -75,7 +74,8 @@ def checkout(request):
     else:
         bag = request.session.get('bag', {})
         if not bag:
-            messages.error(request, "There's nothing in your bag at the moment")
+            messages.error(request, "There's nothing in your \
+                                     bag at the moment")
             return redirect(reverse('products'))
 
         current_bag = bag_contents(request)
@@ -106,7 +106,8 @@ def checkout_success(request, order_number):
         email will be sent to {order.email}.')
     send_mail(
         'Order Confirmation',
-        'Thank you for your order, we aim to despatch all orders within 2 working days.',
+        'Thank you for your order, we aim to \
+         despatch all orders within 2 working days.',
         'nathancave123@gmail.com',
         [{order.email}],
         fail_silently=False,
