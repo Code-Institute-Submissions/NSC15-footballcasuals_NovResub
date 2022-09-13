@@ -76,7 +76,7 @@ pricing and category. All products are links to which logged-in users can see th
 ### Product Detail page
 
 - Admin users have access to a delete function of this page which allows them to delete a product from the database, for situations where the item may now be
-out of stock of discontinued
+out of stock of discontinued. They also have the option to update the existing records for that particular product for if their is a price adjustment required for example.
 - This is where the logged in user can choose the product size and the quantity of products that they would like to purchase, they then do this by clicking the add to bag button.
 Users also have a button for keep shopping which will return them to the products page to add more products into their bag
 
@@ -180,6 +180,10 @@ this was due to the redirect going into the wrong view function, altered this to
 the delete button should then be visible (only if an admin), upon clicking delete the site then redirects back to the general products page but without
 the product that was just deleted, visible success message shown on screen, and process confirmation then passed within admin panel as product now
 doesnt exist in the back end either.
+
+- 'Edit Products' - this function successfully allows an admin user (store worker) to update the details regarding a product, this allows the user to change imagery, details
+and pricing for if their is a sale on. all functions work, and once submitted the form again this then redirects the user back to the product detail page to allow them to see
+their changes while also displaying a useful message to confirm.
 
 - 'Create blog posts' - this function is unfortunately only available via the back end for the purpose of project submission, although testing was still completed within the
 development stage to create the layout of the web page templates, due to it being with the admin back end panel, all functionality is working correctly, i can enter all information

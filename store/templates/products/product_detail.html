@@ -18,9 +18,8 @@
                     <div class="col-md-6">
                         {% if request.user.is_superuser %}
                         <div class="d-flex justify-content-start align-items-baseline">
-                            <a href="{% url 'delete_product' product.slug %}"
-                                class="text-danger admin-control-btn">Delete</a>
-                            <a href="{% url 'edit_product' product.slug %}" class="btn sitebutton me-3">Edit</a>
+                            <a href="{% url 'delete_product' product.slug %}" class="text-danger">Delete</a>
+                            <a href="{% url 'edit_product' product.slug %}" class="link-primary me-3">Edit</a>
                         </div>
                         {% endif %}
                         <h1>{{product.name}}</h1>
