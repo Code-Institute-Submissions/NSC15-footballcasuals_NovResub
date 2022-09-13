@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+
+<main>
+    <div class="container px-4 mt-4 d-flex justify-content-end align-items-baseline">
+        {% if request.user.is_authenticated %}
+        <p class="me-3">Hi <strong>{{user.username}}</strong>!</p>
+        </a>
+        {% endif %}
+    </div>
+    <h1 class="text-center">Update an existing product</h1>
+    <div class="container chat-container my-2">
+        <form action="{% url 'edit_product' product.slug %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for field in form %}
+            {% if field.name != 'image' %}
+            {{ field | as_crispy_field }}
+            {% else %}
+            {{ field }}
+            {% endif %}
+            {% endfor %}
+            <br>
+            <button class="btn btn-primary my-3">Update</button>
+        </form>
+    </div>
+</main>
+
+{% endblock %}

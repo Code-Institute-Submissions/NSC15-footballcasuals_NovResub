@@ -109,6 +109,28 @@ def delete_product(request, slug):
 
     return render(request, 'products/delete_product.html', context)
 
+@login_required
+def edit_product(request, slug):
+
+    product = get_object_or_404(Product, slug=slug)
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            product = form.save()
+            messages.success(request, 'Product details updated')
+            return redirect(reverse('product_detail', args=[product.slug]))
+        else:
+            messages.error(request,
+                           ('Sorry, product coult not be updated.'))
+    else:
+        form = ProductForm(instance=product)
+
+    context = {
+        'product': product,
+        'form': form,
+    }
+
+    return render(request, 'products/edit_product.html', context)
 
 def handler404(request, exception):
     return render(request, "404.html", status=404)
