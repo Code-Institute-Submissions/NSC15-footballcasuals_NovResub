@@ -286,4 +286,4 @@ To deploy to Heroku follow these steps:
 - Google images - I do not own copyright to any images used within the site
 - Slack - Student Chat Platform
 - Stack Overflow - Coding Aid
-- Stripe / CI - Payment system and related code
+- Stripe / CI - Payment system and related code around checkouts
