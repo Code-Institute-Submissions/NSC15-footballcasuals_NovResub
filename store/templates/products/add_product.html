@@ -10,12 +10,6 @@
         <p class="me-3">Hi <strong>{{user.username}}</strong>!</p>
         </a>
         {% endif %}
-        <div>
-            <a class="btn bag-button" href="{% url 'view_bag' %}">
-                <i class="bi bi-bag-fill"></i>
-                {% if grand_total != 10 %} £ {{grand_total|floatformat:2}} {% else %} € 0.00 {% endif %}
-            </a>
-        </div>
     </div>
     <h1 class="text-center">Add New Product</h1>
     <div class="container chat-container my-2">
