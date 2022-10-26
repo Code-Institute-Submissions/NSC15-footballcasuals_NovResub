@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
 from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 from .forms import ProductForm
 
 from .models import Product, Category
@@ -71,7 +72,7 @@ def product_detail(request, slug):
     return render(request, 'products/product_detail.html', context)
 
 
-@login_required
+@staff_member_required()
 def add_product(request):
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
@@ -94,7 +95,7 @@ def add_product(request):
     return render(request, 'products/add_product.html', context)
 
 
-@login_required
+@staff_member_required()
 def delete_product(request, slug):
 
     product = get_object_or_404(Product, slug=slug)
@@ -109,7 +110,7 @@ def delete_product(request, slug):
 
     return render(request, 'products/delete_product.html', context)
 
-@login_required
+@staff_member_required()
 def edit_product(request, slug):
 
     product = get_object_or_404(Product, slug=slug)
