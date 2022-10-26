@@ -109,8 +109,8 @@ def checkout_success(request, order_number):
         'Thank you for your order, we aim to \
          despatch all orders within 2 working days.',
         'nathancave123@gmail.com',
-        [{order.email}],
-        fail_silently=True,
+        [order.email],
+        fail_silently=False,
     )
 
     if 'bag' in request.session:
