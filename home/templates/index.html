@@ -8,7 +8,8 @@
 <section>
     <div class="container chat-container">
         <div class="container-fluid">
-            <img src="{% static 'casuals.png' %}" class="img-responsive index-img mt-0">
+            <img src="{% static 'casuals.png' %}" class="img-responsive index-img mt-0"
+                alt="football stadium home page image">
         </div>
         <div class="container my-3">
             <div class="row text-center">
@@ -35,7 +36,7 @@
                     <div class="card home-card text-center">
                         <div class="card-body">
                             <h1 class="card-title">Products</h1>
-                            <p class="card-text">
+                            <div class="card-text">
                                 <h4>Casual Brands -</h4>
                                 <ul>
                                     <li>Fila</li>
@@ -43,7 +44,7 @@
                                     <li>Stone Island</li>
                                     <li>Sergio Tachini</li>
                                 </ul>
-                            </p>
+                            </div>
                             <a href="{% url 'products' %}" class="btn btn-secondary">Shop</a>
                         </div>
                     </div>
@@ -84,7 +85,6 @@
                                     <div class="response" id="mce-error-response" style="display:none"></div>
                                     <div class="response" id="mce-success-response" style="display:none"></div>
                                 </div>
-                                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                                 <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
                                         name="b_be50e1fcce912caea326e551b_9b29e3cd30" tabindex="-1" value=""></div>
                                 <div class="optionalParent">
@@ -93,16 +93,17 @@
                                             id="mc-embedded-subscribe" class="button">
                                         <p class="brandingLogo"><a href="http://eepurl.com/h-PVqf"
                                                 title="Mailchimp - email marketing made easy and fun"><img
-                                                    src="https://eep.io/mc-cdn-images/template_images/branding_logo_text_dark_dtp.svg"></a>
+                                                    src="https://eep.io/mc-cdn-images/template_images/branding_logo_text_dark_dtp.svg"
+                                                    alt="mailchimp logo"></a>
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </form>
                     </div>
-                    <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'>
+                    <script src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'>
                     </script>
-                    <script type='text/javascript'>
+                    <script>
                         (function ($) {
                             window.fnames = new Array();
                             window.ftypes = new Array();
