@@ -105,9 +105,8 @@ def checkout_success(request, order_number):
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
     send_mail(
-        f'{order_number} Order Confirmation',
-        'Thank you for your order, we aim to \
-         despatch all orders within 2 working days.',
+        f'Order Confirmation {order_number}',
+        'Thank you for your order, we aim to despatch all orders within 2 working days.',
         'nathancave123@gmail.com',
         [order.email],
         fail_silently=False,
