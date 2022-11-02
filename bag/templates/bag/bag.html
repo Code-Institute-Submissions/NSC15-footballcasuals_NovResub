@@ -18,7 +18,7 @@
             <tbody>
                 {% for item in bag_items %}
                 <tr>
-                    <th scope="row"><img class="table-img" src="{{ item.product.image.url }}"></th>
+                    <th scope="row"><img class="table-img" src="{{ item.product.image.url }}" alt="product image"></th>
                     <td>{{ item.product.name }}
                         <br>
                         <a href="{% url 'remove_from_bag' item.item_id %}" class="text-danger"><small>Remove</small></a>
@@ -30,8 +30,10 @@
                 {% endfor %}
             </tbody>
             <tfoot>
-                <th class="bag-total" colspan="3">Grand Total</th>
-                <td colspan="2">£{{ total }}</td>
+                <tr>
+                    <th class="bag-total" colspan="3">Grand Total</th>
+                    <td colspan="2">£{{ total }}</td>
+                </tr>
                 <tr>
                     <td class="bag-total" colspan="5"><a class="btn btn-success btn-lg"
                             href="{% url 'checkout' %}">Checkout
