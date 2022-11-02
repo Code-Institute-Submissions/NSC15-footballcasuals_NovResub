@@ -216,7 +216,61 @@ as expected.
 - W3C CSS Testing Service - Ok
 - PEP8 Testing Service - Ok
 - JSHint Testing Service - Ok
+- Selenium IDE
 
+### Selenium IDE Automated Testing
+
+#### Running 'Choosing and Buying a product'
+
+> 1. open on / OK 19:26:33
+> 2. setWindowSize on 1936x1056 OK 19:26:36
+> 3. click on css=.fa-sign-in-alt OK 19:26:37
+> 4. type on id=id\_login with value ** OK 19:26:41
+> 5. type on id=id\_password with value ** OK 19:26:43
+> 6. click on css=.primaryAction OK 19:26:46
+> 7. click on css=.fa-store-alt OK 19:26:50
+> 8. click on css=.col-sm-6:nth-child(3) .card-img-top OK 19:26:52
+> 9. click on id=id\_product\_size OK 19:26:55
+> 10. select on id=id\_product\_size with value label=L OK 19:26:58
+> 11. click on css=.btn-primary OK 19:27:01
+> 12. click on css=.nav-item:nth-child(2) .my-0 OK 19:27:04
+> 13. click on css=.col-sm-6:nth-child(6) .card-img-top OK 19:27:08
+> 14. click on id=id\_product\_size OK 19:27:10
+> 15. select on id=id\_product\_size with value label=S OK 19:27:13
+> 16. click on id=id\_qty\_7 OK 19:27:17
+> 17. type on id=id\_qty\_7 with value 2 OK 19:27:19
+> 18. click on css=.btn-primary OK 19:27:22
+> 19. click on css=.nav-item:nth-child(6) OK 19:27:26
+> 20. click on css=.fa-shopping-bag OK 19:27:28
+> 21. click on css=.btn OK 19:27:31
+> 22. type on id=id\_full\_name with value Nathan OK 19:27:35
+> 23. type on id=id\_email with value nathancave123@gmail.com OK 19:27:38
+> 24. click on id=id\_phone\_number OK 19:27:41
+> 25. type on id=id\_phone\_number with value 0123456789 OK 19:27:44
+> 26. click on id=id\_street\_address1 OK 19:27:47
+> 27. type on id=id\_street\_address1 with value test OK 19:27:50
+> 28. type on id=id\_street\_address2 with value test OK 19:27:53
+> 29. type on id=id\_town\_or\_city with value test OK 19:27:56
+> 30. type on id=id\_county with value test OK 19:27:59
+> 31. type on id=id\_postcode with value test OK 19:28:02
+> 32. click on id=id\_country OK 19:28:05
+> 33. select on id=id\_country with value label=United Kingdom OK 19:28:08
+> 34. selectFrame on index=1 OK 19:28:11
+> 35. click on name=cardnumber OK 19:28:14
+> 36. type on name=cardnumber with value 4242 4242 4242 4242 OK 19:28:17
+> 37. type on name=exp-date with value 04 / 24 OK 19:28:21
+> 38. type on name=cvc with value 242 OK 19:28:24
+> 39. type on name=postal with value 42424 OK 19:28:26
+> 40. selectFrame on relative=parent OK 19:28:29
+> 41. click on css=.font-weight-bold:nth-child(1) OK 19:28:32
+> 42. click on css=.fa-sign-out-alt OK 19:28:35
+> 43. click on css=form > button OK 19:28:38
+> 
+> 'Choosing and Buying a product' completed successfully
+
+#### Checkout confirmation email
+
+- [Confirmation Email](static/confirmation_email.png)
 ### Manual Testing
 
 - DevTools - Dev tools was used through the project to test responsiveness, and design layouts
