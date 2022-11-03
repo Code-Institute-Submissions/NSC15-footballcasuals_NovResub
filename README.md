@@ -271,6 +271,7 @@ as expected.
 #### Checkout confirmation email
 
 - [Confirmation Email](static/confirmation_email.png)
+
 ### Manual Testing
 
 - DevTools - Dev tools was used through the project to test responsiveness, and design layouts
