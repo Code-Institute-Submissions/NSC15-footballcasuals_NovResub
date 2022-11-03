@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<main>
+    <section class="text-center mx-3 mt-lg-5 pt-3">
+        <div class="container my-5 p-3 ">
+            <div class="my-5">
+                </h1> 500 - Ooops, something isnt working!!</h1>
+                <p>Sorry, there was an error with the last request</p>
+                <div class="text-center mt-5">
+                    <a href="{% url 'home' %}" class="btn btn-success">Go to Homepage</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock %}
